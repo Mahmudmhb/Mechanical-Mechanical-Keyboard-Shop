@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import { Button } from "./ui/button";
 import { FaShoppingCart } from "react-icons/fa";
 import logo from "../assets/Mechanical Keyboard Shop.jpg";
+import "./navber.css";
 
 const Navber = () => {
   const nav = (
@@ -18,13 +18,13 @@ const Navber = () => {
       <li>
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink to="/dashboard">Dashboard</NavLink>
-      </li> */}
+      </li>
     </>
   );
   return (
-    <div>
+    <div className="w-5/6 mx-auto">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,7 +46,7 @@ const Navber = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm active dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 text-2xl shadow"
             >
               {nav}
             </ul>
@@ -60,15 +60,12 @@ const Navber = () => {
           <ul className="menu menu-horizontal px-1">{nav}</ul>
         </div>
         <div className="navbar-end">
-          <div>
-            <Link to="/card">
-              <div className="badge ">
-                <FaShoppingCart />
-                <span className="mb-5"> +99</span>
-              </div>
-            </Link>
-          </div>
-          <Button>Dashboard</Button>
+          <Link to="/card">
+            <div className="badge ">
+              <FaShoppingCart />
+              <span className="mb-5"> +99</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
