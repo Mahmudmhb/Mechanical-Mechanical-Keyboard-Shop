@@ -1,3 +1,4 @@
+import Discover from "@/components/Discover/Discover";
 import Products from "../Product/Products";
 import ServiceAdvertisement from "../Services/ServiceAdvertisement";
 import Brands from "./Brand/Brands";
@@ -12,6 +13,7 @@ const Home = () => {
       <ServiceAdvertisement />
       <Products />
       <Testimonails />
+      <Discover />
     </div>
   );
 };
