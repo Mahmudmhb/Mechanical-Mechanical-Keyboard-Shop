@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button";
 import "../../../components/navber.css";
+import Heading from "@/Heading/Heading";
 
 const Brands = () => {
   return (
     <div className="mt-20 mb-20">
-      <div className="text-[#112] border-b-2 border-[#5be2e5] pb-2  uppercase  mb-10 font-bold text-2xl">
-        <h1 className="">Top Featured Brands</h1>
-      </div>
+      <Heading Heading="Top Featured Brands"></Heading>
       <div className="grid md:grid-cols-3  gap-4">
         <div className="bg-primary-gradient rounded-md   ">
           <div className="relative flex justify-center image-container items-center m-3 ">
