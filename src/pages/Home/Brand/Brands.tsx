@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import "../../../components/navber.css";
+import "../../../components/Navber/navber.css";
 import Heading from "@/Heading/Heading";
 
 const Brands = () => {

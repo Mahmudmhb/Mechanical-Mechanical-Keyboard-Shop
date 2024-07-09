@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import logo from "../assets/Mechanical Keyboard Shop.jpg";
+import logo from "../../assets/Mechanical Keyboard Shop.jpg";
 import "./navber.css";
 
 const Navber = () => {
@@ -24,7 +24,7 @@ const Navber = () => {
     </>
   );
   return (
-    <div className="w-5/6 mx-auto">
+    <div className="">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">

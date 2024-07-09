@@ -1,11 +1,10 @@
 import Heading from "@/Heading/Heading";
 import { Button } from "../ui/button";
-import "../navber.css";
+import "../Navber/navber.css";
 
 const Discover = () => {
   return (
-    <div>
-      <h1>Hello, Discover!</h1>
+    <div className="mb-20 mt-20">
       <Heading Heading="Discover Our Signature Mechanical Keyboard Products"></Heading>
       <div>
         <h1>
@@ -20,7 +19,7 @@ const Discover = () => {
         </h1>
       </div>
       <div className="md:flex mt-20">
-        <div className="bg-[#d9d9d9] w-1/2  flex items-center p-16  ">
+        <div className="bg-[#d9d9d9] md:w-1/2  flex items-center p-16  ">
           <div className="space-y-4">
             <Heading Heading="faPBT Keycaps"></Heading>
             <p>
@@ -31,7 +30,7 @@ const Discover = () => {
             <Button className="bg-primary-gradient">Explore</Button>
           </div>
         </div>
-        <div className="w-1/2 image-container">
+        <div className="md:w-1/2 image-container">
           <img
             src="https://keebsforall.com/cdn/shop/products/DSC09732.jpg?v=1676148273&width=700"
             alt=""
@@ -40,13 +39,13 @@ const Discover = () => {
         </div>
       </div>
       <div className="md:flex ">
-        <div className="w-1/2 image-container">
+        <div className="md:w-1/2 image-container">
           <img
             src="https://keebsforall.com/cdn/shop/products/pink-robin-switch-on-wood-closeup.png"
             alt=""
           />
         </div>
-        <div className="bg-[#d9d9d9] w-1/2  flex items-center p-16  ">
+        <div className="bg-[#d9d9d9] md:w-1/2  flex items-center p-16  ">
           <div className="space-y-4">
             <Heading Heading=" KFA Switches"></Heading>
             <p>
@@ -59,7 +58,7 @@ const Discover = () => {
         </div>
       </div>
       <div className="md:flex">
-        <div className="bg-[#d9d9d9] w-1/2  flex items-center p-16  ">
+        <div className="bg-[#d9d9d9] md:w-1/2  flex items-center p-16  ">
           <div className="space-y-4">
             <Heading Heading="KFA Deskmats"></Heading>
             <p>
@@ -70,7 +69,7 @@ const Discover = () => {
             <Button className="bg-primary-gradient">Explore</Button>
           </div>
         </div>
-        <div className="w-1/2 image-container">
+        <div className="md:w-1/2 image-container">
           <img
             src="https://keebsforall.com/cdn/shop/products/Cat-Mat-Right-Side.png"
             alt=""
