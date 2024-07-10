@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -7,12 +6,45 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Heading from "@/Heading/Heading";
+import { useGetAllProductsQuery } from "@/Redux/features/products/productsApi";
+import { TProductProps } from "@/types/types";
+import Product from "./Product";
+import {
+  seleteProducts,
+  seleteSearchQueray,
+  setProducts,
+  setSearchQuery,
+} from "@/Redux/features/products/productsSlice";
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
+import { ChangeEvent } from "react";
 
 const Products = () => {
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(seleteProducts);
+  const searchProductQuery = useAppSelector(seleteSearchQueray);
+
+  const { data } = useGetAllProductsQuery(undefined);
+  const productData = data?.data;
+  if (data) {
+    dispatch(setProducts(productData));
+  }
+  const handleInputSearchQuery = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchQuery(event.target.value));
+  };
+  const searchProduct = products?.filter((product: TProductProps) =>
+    product.title
+      .toLocaleLowerCase()
+      .includes(searchProductQuery.toLocaleLowerCase())
+  );
   return (
-    <div className="w-11/12 mx-auto my-20">
+    <div className="w-11/12  mx-auto my-20">
       <label className="input input-bordered my-5 flex items-center gap-2">
-        <input type="text" className="grow" placeholder="Search" />
+        <input
+          type="text"
+          className="grow"
+          placeholder="Search Your Product"
+          onChange={handleInputSearchQuery}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -41,30 +73,10 @@ const Products = () => {
           </Select>
         </div>
       </div>
-      <div>
-        <div className="card bg-base-100 w-96 shadow-xl">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>Brand:</p>
-            <p>Available Quantity:</p>
-            <div className="card-actions justify-between">
-              <div className="">Price:</div>
-              <div className="">Rating :</div>
-            </div>
-          </div>
-          <div className="card-actions ">
-            <Button>Buy now</Button>
-          </div>
-        </div>
+      <div className="grid md:grid-cols-3 gap-4">
+        {searchProduct?.map((product: TProductProps) => (
+          <Product key={product?._id} product={product} />
+        ))}
       </div>
     </div>
   );
