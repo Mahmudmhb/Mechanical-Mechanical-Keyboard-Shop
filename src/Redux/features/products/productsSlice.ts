@@ -1,19 +1,15 @@
 import { RootState } from "@/Redux/store";
-import { TProductProps } from "@/types/types";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type ProductsState = {
-  products: TProductProps[];
-  searchQuery: string;
-  value: number;
-  selectedProduct: TProductProps | null;
-};
+import { ProductsState } from "@/types/types";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: ProductsState = {
   products: [],
   searchQuery: "",
   value: 0,
   selectedProduct: null,
+  card: 0,
+  cardPrduct: [],
+  cardInrement: [],
 };
 const productsSlice = createSlice({
   name: "product",
@@ -25,20 +21,18 @@ const productsSlice = createSlice({
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
     },
-    setSingleID(state, action) {
-      state.products == action.payload;
-    },
-    singleProduct(state, action: PayloadAction<string>) {
-      const foundProduct = state.products.find(
-        (product) => product._id === action.payload
-      );
-      state.selectedProduct = foundProduct || null;
-    },
+
     increment(state) {
       state.value += 1;
     },
     decrement(state) {
       state.value -= 1;
+    },
+    addToCard(state, action) {
+      state.card += action.payload;
+    },
+    handleCardProduct(state, action) {
+      state.cardPrduct.push(action.payload);
     },
   },
 });
@@ -48,14 +42,16 @@ export const {
   setSearchQuery,
   increment,
   decrement,
-  singleProduct,
-  setSingleID,
+  addToCard,
+  handleCardProduct,
 } = productsSlice.actions;
 // search implement
 export const selectCount = (state: RootState) => state.products.value;
 export const seleteProducts = (state: RootState) => state.products.products;
-export const getSigleProduct = (state: RootState) =>
-  state.products.selectedProduct;
+
+export const TotalCard = (state: RootState) => state.products.card;
+export const handleAddToCardItem = (state: RootState) =>
+  state.products.cardPrduct;
 export const seleteSearchQueray = (state: RootState) =>
   state.products.searchQuery;
 export default productsSlice.reducer;

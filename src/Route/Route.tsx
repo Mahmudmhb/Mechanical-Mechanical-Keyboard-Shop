@@ -1,6 +1,7 @@
 import MainLayout from "@/components/MainLayout/MainLayout";
 import Dashboard from "@/Dashboard/Dashboard";
 import AboutUs from "@/pages/About/AboutUs";
+import Cards from "@/pages/Cards/Cards";
 import ContactUs from "@/pages/Contact/ContactUs";
 import Home from "@/pages/Home/Home";
 import Products from "@/pages/Product/Products";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/cards",
+        element: <Cards />,
       },
     ],
   },

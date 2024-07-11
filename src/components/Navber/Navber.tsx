@@ -2,8 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import logo from "../../assets/Mechanical Keyboard Shop.jpg";
 import "./navber.css";
+import { useAppSelector } from "@/Redux/hooks";
+import { selectTotalQuantity } from "@/Redux/features/products/cardSlice";
 
 const Navber = () => {
+  const cards = useAppSelector(selectTotalQuantity);
+  // console.log(cards);
+
+  // const { count } = card;
+  // console.log("count", count);
+  // console.log("product", product);
+
   const nav = (
     <>
       <li>
@@ -60,10 +69,10 @@ const Navber = () => {
           <ul className="menu menu-horizontal px-1">{nav}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/card">
+          <Link to="/cards">
             <div className="badge ">
               <FaShoppingCart />
-              <span className="mb-5"> +99</span>
+              <span className="mb-5"> {cards}</span>
             </div>
           </Link>
         </div>

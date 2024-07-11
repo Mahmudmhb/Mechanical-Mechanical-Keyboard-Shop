@@ -22,9 +22,9 @@ const Product = ({ product }: { product: TProductProps }) => {
           </div>
         </div>
         <div className="card-actions items-center justify-center mb-5 ">
-          <Button className="bg-primary-gradient ">Buy now</Button>
+          {/* <Button >Buy now</Button> */}
           <Link to={`/product/${product._id}`}>
-            <Button className=" ">more details</Button>
+            <Button className="bg-primary-gradient ">more details</Button>
           </Link>
         </div>
       </div>
