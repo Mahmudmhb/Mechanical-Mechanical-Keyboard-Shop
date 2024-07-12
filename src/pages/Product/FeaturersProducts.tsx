@@ -4,9 +4,12 @@ import Product from "./Product";
 import { useGetAllProductsQuery } from "@/Redux/features/products/productsApi";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { setProducts } from "@/Redux/features/products/productsSlice";
+import { useAppDispatch } from "@/Redux/hooks";
 
 const FeaturersProducts = () => {
   const { data, isLoading } = useGetAllProductsQuery(undefined);
+  const dispatch = useAppDispatch();
   if (isLoading) {
     return (
       <div>
@@ -15,6 +18,10 @@ const FeaturersProducts = () => {
     );
   }
   const products = data?.data;
+  if (data) {
+    dispatch(setProducts(products));
+  }
+
   return (
     <div>
       <div className=" mx-auto my-20">

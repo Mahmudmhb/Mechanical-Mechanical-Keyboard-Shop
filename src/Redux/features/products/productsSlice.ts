@@ -1,6 +1,6 @@
 import { RootState } from "@/Redux/store";
 import { ProductsState } from "@/types/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: ProductsState = {
   products: [],
@@ -10,6 +10,7 @@ const initialState: ProductsState = {
   card: 0,
   cardPrduct: [],
   cardInrement: [],
+  singleProduct: undefined,
 };
 const productsSlice = createSlice({
   name: "product",
@@ -21,6 +22,11 @@ const productsSlice = createSlice({
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
     },
+    getSingleProduct: (state, action: PayloadAction<string>) => {
+      const productId = action.payload;
+      const singleProduct = state.products.find((p) => p._id === productId);
+      state.singleProduct = singleProduct;
+    },
 
     increment(state) {
       state.value += 1;
@@ -28,30 +34,26 @@ const productsSlice = createSlice({
     decrement(state) {
       state.value -= 1;
     },
-    addToCard(state, action) {
-      state.card += action.payload;
-    },
-    handleCardProduct(state, action) {
-      state.cardPrduct.push(action.payload);
+    deleteProduct: (state, action) => {
+      const productId = action.payload;
+      state.products = state.products.filter((p) => p._id !== productId);
     },
   },
 });
 
 export const {
   setProducts,
+  deleteProduct,
   setSearchQuery,
   increment,
   decrement,
-  addToCard,
-  handleCardProduct,
+  getSingleProduct,
 } = productsSlice.actions;
-// search implement
-export const selectCount = (state: RootState) => state.products.value;
-export const seleteProducts = (state: RootState) => state.products.products;
 
-export const TotalCard = (state: RootState) => state.products.card;
-export const handleAddToCardItem = (state: RootState) =>
-  state.products.cardPrduct;
+export const selectCount = (state: RootState) => state.products.value;
+export const seletetProducts = (state: RootState) => state.products.products;
 export const seleteSearchQueray = (state: RootState) =>
   state.products.searchQuery;
+export const singleProductFromState = (state: RootState) =>
+  state.products.singleProduct;
 export default productsSlice.reducer;

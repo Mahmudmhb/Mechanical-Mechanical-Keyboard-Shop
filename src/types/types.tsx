@@ -10,6 +10,7 @@ export type ProductsState = {
   selectedProduct: TProductProps | null;
   cardPrduct: TProductProps[];
   cardInrement: TCardIncrement[];
+  singleProduct?: TProductProps;
 };
 
 export interface CartItem extends ProductsState {
@@ -26,6 +27,7 @@ export interface TProductProps {
   price: number;
   rating: number;
   description: string;
+  update?: string;
 }
 
 export interface AddToCartPayload {
@@ -39,4 +41,14 @@ export interface TCartItem extends TProductProps {
 
 export interface TCard {
   items: TCartItem[];
+}
+
+export interface IFormInput {
+  title: string;
+  _id: string;
+  price: number;
+  description: string;
+  brand: string;
+  availableQuantity: number;
+  rating: number;
 }

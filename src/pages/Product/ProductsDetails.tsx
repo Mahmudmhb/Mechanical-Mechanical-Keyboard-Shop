@@ -2,32 +2,29 @@ import { Button } from "@/components/ui/button";
 import Heading from "@/Heading/Heading";
 import { addToCart } from "@/Redux/features/products/cardSlice";
 import { useGetAllProductsQuery } from "@/Redux/features/products/productsApi";
-import { useGetSignleProductQuery } from "@/Redux/features/products/singleProductApi";
-import { useAppDispatch } from "@/Redux/hooks";
+import {
+  getSingleProduct,
+  singleProductFromState,
+} from "@/Redux/features/products/productsSlice";
+
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import { TProductProps } from "@/types/types";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 
 const ProductsDetails = () => {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
+
+  dispatch(getSingleProduct(id as string));
   const [cardBtn, setCardBtn] = useState(false);
   const [count, setCount] = useState(1);
-
-  const dispatch = useAppDispatch();
-  const { data: singleProduct, isLoading } = useGetSignleProductQuery(id);
-  const product: TProductProps = singleProduct?.data;
 
   const { data } = useGetAllProductsQuery(undefined);
   const products = data?.data;
 
-  if (isLoading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
+  const product = useAppSelector(singleProductFromState) as TProductProps;
 
   const totalQuantity = product?.availableQuantity - count || 0;
 

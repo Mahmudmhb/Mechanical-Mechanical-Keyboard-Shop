@@ -1,17 +1,13 @@
 import Heading from "@/Heading/Heading";
 import { useAppSelector } from "@/Redux/hooks";
 import SingleCard from "./SingleCard";
-import {
-  cardProduct,
-  selectTotalPrice,
-} from "@/Redux/features/products/cardSlice";
+import { cardProduct } from "@/Redux/features/products/cardSlice";
 import { Button } from "@/components/ui/button";
+import CardSummey from "./CardSummey";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   const cartItems = useAppSelector(cardProduct);
-  const cartTotalPrice = useAppSelector(selectTotalPrice);
-
-  console.log(cartTotalPrice);
 
   return (
     <div className="w-5/6 mx-auto my-20 min-h-screen">
@@ -44,40 +40,21 @@ const Cards = () => {
           </table>
         </div>
 
-        <div className="col-span-2 border my-5 p-5">
-          <div>
-            <Heading Heading="card summery"></Heading>
-
-            <div className="space-y-4">
-              <div className="flex justify-between ">
-                <h1>Total Items: </h1>
-                <h1>{cartItems?.length}</h1>
-              </div>
-              <div>
-                {cartItems?.map((product) => (
-                  <div className="flex justify-between border-t">
-                    <h1>
-                      Total Card: ( {product?.quantity} X {product.price} )
-                    </h1>
-                    <h1>{product?.quantity * product.price}</h1>
-                  </div>
-                ))}
-                <h1></h1>
-              </div>
-              <div className="flex justify-between border-t">
-                {" "}
-                <h1>Total price:</h1>
-                <h1>{cartTotalPrice!}</h1>
-              </div>
+        <div className="col-span-2 border  my-5 p-5">
+          <div className="space-y-5">
+            <CardSummey></CardSummey>
+            <div>
               {cartItems.length > 0 ? (
                 <>
-                  <Button className="bg-primary-gradient disabled">
-                    Proceed To Checkout
-                  </Button>
+                  <Link to="/checkout">
+                    <Button className="bg-primary-gradient ">
+                      Proceed To Checkout
+                    </Button>
+                  </Link>
                 </>
               ) : (
                 <>
-                  <Button>Please Add Products Your Card</Button>
+                  <p className="font-bold">Please Add Products Your Card</p>
                 </>
               )}
             </div>

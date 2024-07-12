@@ -6,13 +6,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Heading from "@/Heading/Heading";
-import { useGetAllProductsQuery } from "@/Redux/features/products/productsApi";
+
 import { TProductProps } from "@/types/types";
 import Product from "./Product";
 import {
-  seleteProducts,
   seleteSearchQueray,
-  setProducts,
+  seletetProducts,
   setSearchQuery,
 } from "@/Redux/features/products/productsSlice";
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
@@ -20,14 +19,8 @@ import { ChangeEvent } from "react";
 
 const Products = () => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector(seleteProducts);
+  const products = useAppSelector(seletetProducts);
   const searchProductQuery = useAppSelector(seleteSearchQueray);
-
-  const { data } = useGetAllProductsQuery(undefined);
-  const productData = data?.data;
-  if (data) {
-    dispatch(setProducts(productData));
-  }
   const handleInputSearchQuery = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchQuery(event.target.value));
   };
