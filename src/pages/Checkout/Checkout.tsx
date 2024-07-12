@@ -9,6 +9,7 @@ import {
 import Heading from "@/Heading/Heading";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 type Inputs = {
   name: string;
   email: string;
@@ -22,8 +23,14 @@ const Checkout = () => {
   const dispatch = useAppDispatch();
   const cartTotalPrice = useAppSelector(selectTotalPrice);
   const totalPrice = cartTotalPrice + 20;
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your Product has been Deleted",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     dispatch(clearCart());
     navigate("/success");
   };

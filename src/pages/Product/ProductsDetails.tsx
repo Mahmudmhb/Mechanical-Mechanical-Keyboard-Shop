@@ -12,6 +12,7 @@ import { TProductProps } from "@/types/types";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductsDetails = () => {
   const dispatch = useAppDispatch();
@@ -29,6 +30,13 @@ const ProductsDetails = () => {
   const totalQuantity = product?.availableQuantity - count || 0;
 
   const handleAddToCartBtn = (product: TProductProps) => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your Product has been Added To Card",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     dispatch(addToCart({ product, quantity: count }));
 
     setCardBtn(true);

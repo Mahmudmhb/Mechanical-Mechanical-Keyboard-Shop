@@ -38,6 +38,20 @@ const productsSlice = createSlice({
       const productId = action.payload;
       state.products = state.products.filter((p) => p._id !== productId);
     },
+    setUpdateProducts: (state, action) => {
+      state.products = action.payload;
+    },
+    updateProductIntoState: (state, action) => {
+      const getProduct = action.payload;
+      console.log("get product", getProduct);
+      const foundProduct = state.products.find(
+        (p) => p._id === getProduct?._id
+      );
+      console.log("found product", foundProduct);
+      if (foundProduct) {
+        Object.assign(foundProduct, getProduct);
+      }
+    },
   },
 });
 
@@ -48,6 +62,7 @@ export const {
   increment,
   decrement,
   getSingleProduct,
+  updateProductIntoState,
 } = productsSlice.actions;
 
 export const selectCount = (state: RootState) => state.products.value;

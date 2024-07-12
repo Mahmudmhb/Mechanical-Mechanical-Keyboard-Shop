@@ -7,6 +7,7 @@ import { TProductProps } from "@/types/types";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import { addToCart, removeFromCart } from "@/Redux/features/products/cardSlice";
 import { Button } from "@/components/ui/button";
+import Swal from "sweetalert2";
 
 interface SingleCardProps {
   product: TProductProps;
@@ -18,12 +19,38 @@ const SingleCard = ({ product }: SingleCardProps) => {
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your Product has been Updated ",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     dispatch(addToCart({ product, quantity }));
     setUpdateCard(true);
   };
 
   const handleRemoveFromCart = () => {
-    dispatch(removeFromCart(product._id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "do you want to delete it?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeFromCart(product._id));
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your Product has been Deleted",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   return (

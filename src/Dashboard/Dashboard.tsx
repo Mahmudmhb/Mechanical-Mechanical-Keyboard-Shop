@@ -1,24 +1,13 @@
-import { useGetAllProductsQuery } from "@/Redux/features/products/productsApi";
 import ProductTable from "./ProductTable";
 import { TProductProps } from "@/types/types";
-import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
-import {
-  seletetProducts,
-  setProducts,
-} from "@/Redux/features/products/productsSlice";
+import { useAppSelector } from "@/Redux/hooks";
+import { seletetProducts } from "@/Redux/features/products/productsSlice";
 
 const Dashboard = () => {
-  // const dispatch = useAppDispatch();
   const findProduct = useAppSelector(seletetProducts);
-  // const { data, isLoading } = useGetAllProductsQuery(undefined);
-  console.log(findProduct);
   if (!findProduct.length) {
     return <p>Lodding...........</p>;
   }
-  // const products = data.data;
-  // if (data) {
-  //   dispatch(setProducts(products));
-  // }
 
   return (
     <div className="min-h-screen w-5/6 mx-auto">
