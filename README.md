@@ -1,6 +1,6 @@
 # E-Commerce Platform
 
-[Live Demo]https://mechanical-keyboard-shop-mu.vercel.app/
+Live Demo: https://mechanical-keyboard-shop-mu.vercel.app/
 
 ## Table of Contents
 
@@ -70,16 +70,14 @@ The **E-Commerce Platform** is a full-featured web application built using the M
    cd your-repo-name
    Install backend dependencies:
 
-```sh
-Copy code
+```sh Copy code
 cd backend
 npm install
 ```
 
 Install frontend dependencies:
 
-```sh
-Copy code
+```sh Copy code
 cd ../frontend
 
 npm install
@@ -90,21 +88,19 @@ Running the Application
 Start MongoDB:
 Make sure MongoDB is running. If using a local instance, start MongoDB using:
 
-````sh
-Copy code
+```sh Copy code
 mongodb
 Start the backend server:
+```
 
-```sh
-Copy code
+```sh Copy code
 cd backend
 npm start
-````
+```
 
 Start the frontend development server:
 
-```sh
-Copy code
+```sh Copy code
 cd ../frontend
 npm start
 ```

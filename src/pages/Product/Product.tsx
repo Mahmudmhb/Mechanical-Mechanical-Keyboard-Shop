@@ -11,7 +11,7 @@ const Product = ({ product }: { product: TProductProps }) => {
 
   return (
     <div className="animate__animated animate__fadeInUpf">
-      <div className="card bg-base-300 mx-auto  image-container md:w-96 h-[500px]  shadow-xl">
+      <div className="card bg-base-300 mx-auto  image-container md:w-96 h-[500px]  ">
         <figure>
           <img src={product.image} className="h-60  w-full" />
         </figure>

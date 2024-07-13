@@ -5,6 +5,7 @@ import Testimonails from "./Testimonials/Testimonails";
 import FeaturersProducts from "../Product/FeaturersProducts";
 // import Hero from "./Hero/Hero";
 import Bennar from "@/components/Bennar/Bennar";
+import AccorditionSection from "@/components/AccorditionSection/AccorditionSection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <FeaturersProducts />
         <Discover />
         <Testimonails />
+        <AccorditionSection />
       </div>
     </div>
   );

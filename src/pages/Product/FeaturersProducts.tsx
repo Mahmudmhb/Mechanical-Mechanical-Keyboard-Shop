@@ -26,7 +26,10 @@ const FeaturersProducts = () => {
     <div>
       <div className=" mx-auto my-20">
         <div className=" my-10">
-          <Heading Heading="Featured Products"></Heading>
+          <Heading
+            Heading="Featured Products"
+            Text="Shop MK's selection of over 1,000 Mechanical Keyboards. Unlike membrane keyboards, where pressing a key pushes down on a single keyboard-sized membrane to complete a circuit, mechanical keyboards use individual mechanical switches for each key. Shop from a wide variety of sizes, switch types, keycaps, brands, and more to customize your gaming and typing experience."
+          ></Heading>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
           {products?.slice(0, 6).map((product: TProductProps) => (
