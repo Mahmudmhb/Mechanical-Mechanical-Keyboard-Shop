@@ -1,4 +1,5 @@
 import MainLayout from "@/components/MainLayout/MainLayout";
+import AddProducts from "@/Dashboard/AddProducts/AddProducts";
 import Dashboard from "@/Dashboard/Dashboard";
 import AboutUs from "@/pages/About/AboutUs";
 import Cards from "@/pages/Cards/Cards";
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/products/",
         element: <Products />,
+      },
+      {
+        path: "/addproducts/",
+        element: <AddProducts />,
       },
 
       {

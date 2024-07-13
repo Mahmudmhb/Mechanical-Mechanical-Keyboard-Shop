@@ -9,26 +9,17 @@ const productsApi = baseApi.injectEndpoints({
       }),
       providesTags: ["Products"],
     }),
-    getSingleProduct: builder.query({
-      query: (id) => ({
-        url: `/products/${id}`,
-        method: "GET",
-      }),
-      providesTags: (result, error, id) => [{ type: "Products", id }],
-    }),
-    updateProduct: builder.mutation({
-      query: (product) => ({
-        url: `/products/${product._id}`,
-        method: "PUT",
-        body: product,
-      }),
+    crateProducts: builder.mutation({
+      query: (newData) => {
+        return {
+          url: "products/create-products",
+          method: "POST",
+          body: newData,
+        };
+      },
       invalidatesTags: ["Products"],
     }),
   }),
 });
 
-export const {
-  useGetAllProductsQuery,
-  useGetSingleProductQuery,
-  useUpdateProductMutation,
-} = productsApi;
+export const { useGetAllProductsQuery, useCrateProductsMutation } = productsApi;

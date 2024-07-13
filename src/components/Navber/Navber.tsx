@@ -1,17 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import logo from "../../assets/Mechanical Keyboard Shop.jpg";
+import logo from "../../assets/Mechanical Keyboard Shop.png";
 import "./navber.css";
 import { useAppSelector } from "@/Redux/hooks";
 import { selectTotalQuantity } from "@/Redux/features/products/cardSlice";
 
 const Navber = () => {
   const cards = useAppSelector(selectTotalQuantity);
-  // console.log(cards);
-
-  // const { count } = card;
-  // console.log("count", count);
-  // console.log("product", product);
 
   const nav = (
     <>
@@ -33,8 +28,8 @@ const Navber = () => {
     </>
   );
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="bg-base-100 border-b">
+      <div className=" w-11/12 mx-auto navbar ">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,7 +57,9 @@ const Navber = () => {
           </div>
           {/* <a className="btn btn-ghost text-xl">{logo}</a> */}
           <div>
-            <img className="h-14" src={logo} alt="" />
+            <Link to="/">
+              <img className="h-14" src={logo} alt="" />
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -71,8 +68,8 @@ const Navber = () => {
         <div className="navbar-end">
           <Link to="/cards">
             <div className="badge ">
-              <FaShoppingCart />
-              <span className="mb-5"> {cards}</span>
+              <FaShoppingCart className="text-[#5c53fe] text-2xl" />
+              <span className="mb-5 "> {cards}</span>
             </div>
           </Link>
         </div>

@@ -27,7 +27,7 @@ const Checkout = () => {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Your Product has been Deleted",
+      title: "Your order has been placed successfully!",
       showConfirmButton: false,
       timer: 1500,
     });

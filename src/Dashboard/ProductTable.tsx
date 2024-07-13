@@ -45,7 +45,7 @@ const ProductTable = ({ product }: { product: TProductProps }) => {
       <td>{product.title}</td>
       <td>${product.price}</td>
       <td>{product.brand}</td>
-      <td className="flex justify-between">
+      <td className="flex justify-between items-center">
         <div>
           <button>
             {" "}

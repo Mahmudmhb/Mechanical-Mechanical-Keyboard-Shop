@@ -2,6 +2,9 @@ import ProductTable from "./ProductTable";
 import { TProductProps } from "@/types/types";
 import { useAppSelector } from "@/Redux/hooks";
 import { seletetProducts } from "@/Redux/features/products/productsSlice";
+import Heading from "@/Heading/Heading";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const findProduct = useAppSelector(seletetProducts);
@@ -10,7 +13,15 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen w-5/6 mx-auto">
+    <div className="min-h-screen w-5/6 my-20 mx-auto">
+      <div>
+        <Heading Heading="Dashboard"></Heading>
+      </div>
+      <div>
+        <Link to="/addproducts">
+          <Button>Add Products</Button>
+        </Link>
+      </div>
       <div>
         <div className="overflow-x-auto ">
           <table className="table">

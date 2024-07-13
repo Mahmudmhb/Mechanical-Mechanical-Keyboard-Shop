@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/Mechanical Keyboard Shop.jpg";
+import logo from "../../assets/Mechanical Keyboard Shop.png";
 const Footer = () => {
   return (
     <div

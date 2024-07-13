@@ -25,17 +25,17 @@ const FeaturersProducts = () => {
   return (
     <div>
       <div className=" mx-auto my-20">
-        <div className="md:flex  justify-between my-10">
+        <div className=" my-10">
           <Heading Heading="Featured Products"></Heading>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
           {products?.slice(0, 6).map((product: TProductProps) => (
             <Product key={product?._id} product={product} />
           ))}
         </div>
         <div className="flex justify-center my-10">
           <Link to="/products">
-            <Button className="bg-primary-gradient ">More Products</Button>
+            <Button className="bg-[#5c53fe] ">More Products</Button>
           </Link>
         </div>
       </div>

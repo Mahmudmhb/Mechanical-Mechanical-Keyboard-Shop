@@ -8,7 +8,7 @@ const ServiceAdvertisement = () => {
     <div className="mb-20 mt-20">
       <Heading Heading="our service offered for you"></Heading>
       <div className="grid md:grid-cols-4 gap-4 ">
-        <div className="bg-[#ffe47f] relative rounded-xl w-full">
+        <div className="bg-[#ffe47f] relative animate_animated animate__fadeInLeft rounded-xl w-full">
           <div className="space-y-1 p-8">
             <MdOutlineLocalShipping className="text-5xl" />
             <h1 className="text-2xl font-semibold">Free shipping</h1>

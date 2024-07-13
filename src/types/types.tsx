@@ -2,6 +2,7 @@ export type TCardIncrement = {
   id: string;
   values: number;
 };
+type SortType = "low-to-high" | "high-to-low" | null;
 export type ProductsState = {
   products: TProductProps[];
   searchQuery: string;
@@ -11,6 +12,9 @@ export type ProductsState = {
   cardPrduct: TProductProps[];
   cardInrement: TCardIncrement[];
   singleProduct?: TProductProps;
+  minPrice: number;
+  maxPrice: typeof Infinity;
+  sort?: SortType;
 };
 
 export interface CartItem extends ProductsState {

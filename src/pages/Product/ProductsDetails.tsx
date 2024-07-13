@@ -48,8 +48,8 @@ const ProductsDetails = () => {
         <>
           <Heading Heading={product.title} />
 
-          <div className="md:grid grid-cols-5 gap-20 flex">
-            <div className="col-span-3">
+          <div className="md:grid md:grid-cols-5 gap-20 ">
+            <div className="md:col-span-3">
               <div>
                 <img
                   src={product.image}
@@ -65,7 +65,7 @@ const ProductsDetails = () => {
               </div>
             </div>
 
-            <div className="space-y-4 mb-10 col-span-2">
+            <div className="space-y-4 mb-10 md:col-span-2">
               <div className="space-y-5">
                 <h1 className="text-2xl">{product.title}</h1>
                 <h3>

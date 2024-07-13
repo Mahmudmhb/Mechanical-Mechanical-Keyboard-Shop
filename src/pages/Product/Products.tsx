@@ -10,27 +10,58 @@ import Heading from "@/Heading/Heading";
 import { TProductProps } from "@/types/types";
 import Product from "./Product";
 import {
+  clearFilters,
+  selectFilters,
   seleteSearchQueray,
   seletetProducts,
   setSearchQuery,
+  setSort,
 } from "@/Redux/features/products/productsSlice";
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import { ChangeEvent } from "react";
+import Hero from "../Home/Hero/Hero";
 
 const Products = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(seletetProducts);
+  const filters = useAppSelector(selectFilters);
+
   const searchProductQuery = useAppSelector(seleteSearchQueray);
   const handleInputSearchQuery = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchQuery(event.target.value));
   };
-  const searchProduct = products?.filter((product: TProductProps) =>
-    product.title
-      .toLocaleLowerCase()
-      .includes(searchProductQuery.toLocaleLowerCase())
-  );
+
+  const handleSortChange = (value: string) => {
+    if (value === "low") {
+      dispatch(setSort("low-to-high"));
+    } else if (value === "high") {
+      dispatch(setSort("high-to-low"));
+    } else {
+      dispatch(clearFilters());
+    }
+  };
+  const searchProduct = products
+    ?.filter((product: TProductProps) =>
+      product.title
+        .toLocaleLowerCase()
+        .includes(searchProductQuery.toLocaleLowerCase())
+    )
+    .filter(
+      (product: TProductProps) =>
+        product.price >= filters.minPrice && product.price <= filters.maxPrice
+    )
+    .sort((a, b) => {
+      if (filters.sort === "low-to-high") {
+        return a.price - b.price;
+      } else if (filters.sort === "high-to-low") {
+        return b.price - a.price;
+      } else {
+        return 0;
+      }
+    });
   return (
     <div className="w-11/12  mx-auto my-20">
+      <Hero></Hero>
       <label className="input input-bordered my-5 flex items-center gap-2">
         <input
           type="text"
@@ -52,21 +83,21 @@ const Products = () => {
         </svg>
       </label>
       <div className="md:flex  justify-between my-10">
-        <Heading Heading="Featured Products"></Heading>
+        <Heading Heading="All Products"></Heading>
         <div>
-          <Select>
+          <Select onValueChange={handleSortChange}>
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Theme" />
+              <SelectValue placeholder="Sort By Price" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="low">low to high </SelectItem>
-              <SelectItem value="high"> high to low</SelectItem>
-              <SelectItem value="reset"> reset all</SelectItem>
+              <SelectItem value="low">Low to High</SelectItem>
+              <SelectItem value="high">High to Low</SelectItem>
+              <SelectItem value="reset">Reset All</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
         {searchProduct?.map((product: TProductProps) => (
           <Product key={product?._id} product={product} />
         ))}
