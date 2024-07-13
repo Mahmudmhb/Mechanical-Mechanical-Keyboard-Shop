@@ -21,7 +21,11 @@ const FeaturersProducts = () => {
   if (data) {
     dispatch(setProducts(products));
   }
-
+  const letestProduct = [...products].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+  // console.log(letestProduct);
+  // console.log("product", products);
   return (
     <div>
       <div className=" mx-auto my-20">
@@ -32,7 +36,7 @@ const FeaturersProducts = () => {
           ></Heading>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
-          {products?.slice(0, 6).map((product: TProductProps) => (
+          {letestProduct?.slice(0, 6).map((product: TProductProps) => (
             <Product key={product?._id} product={product} />
           ))}
         </div>

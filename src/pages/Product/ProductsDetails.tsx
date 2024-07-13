@@ -1,3 +1,4 @@
+import { renderStars } from "@/components/Reating/Reating";
 import { Button } from "@/components/ui/button";
 import Heading from "@/Heading/Heading";
 import { addToCart } from "@/Redux/features/products/cardSlice";
@@ -16,17 +17,21 @@ import Swal from "sweetalert2";
 
 const ProductsDetails = () => {
   const dispatch = useAppDispatch();
+  // get id form params
   const { id } = useParams();
 
   dispatch(getSingleProduct(id as string));
   const [cardBtn, setCardBtn] = useState(false);
   const [count, setCount] = useState(1);
 
+  // get all products for TRENDING PRODUCTS
   const { data } = useGetAllProductsQuery(undefined);
+
   const products = data?.data;
 
   const product = useAppSelector(singleProductFromState) as TProductProps;
 
+  // count total quantity of card
   const totalQuantity = product?.availableQuantity - count || 0;
 
   const handleAddToCartBtn = (product: TProductProps) => {
@@ -80,7 +85,7 @@ const ProductsDetails = () => {
                 ) : (
                   <p>Available Quantity: {totalQuantity}</p>
                 )}
-                <h5>Rating: {product.rating}</h5>
+                <h5 className="flex ">Rating: {renderStars(product.rating)}</h5>
 
                 <div className="flex gap-5">
                   <div className="flex gap-5 items-center border px-5">

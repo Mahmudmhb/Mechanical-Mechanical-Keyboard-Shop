@@ -14,13 +14,15 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen w-5/6 my-20 mx-auto">
-      <div>
-        <Heading Heading="Dashboard"></Heading>
-      </div>
-      <div>
-        <Link to="/addproducts">
-          <Button>Add Products</Button>
-        </Link>
+      <div className="flex justify-between items-center">
+        <div>
+          <Heading Heading="Dashboard"></Heading>
+        </div>
+        <div>
+          <Link to="/addproducts">
+            <Button>Add Products</Button>
+          </Link>
+        </div>
       </div>
       <div>
         <div className="overflow-x-auto ">

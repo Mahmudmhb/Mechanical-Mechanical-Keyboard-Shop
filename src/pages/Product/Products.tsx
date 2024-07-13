@@ -69,7 +69,7 @@ const Products = () => {
             Text="Shop MK's selection of over 1,000 Mechanical Keyboards. Unlike membrane keyboards, where pressing a key pushes down on a single keyboard-sized membrane to complete a circuit, mechanical keyboards use individual mechanical switches for each key. Shop from a wide variety of sizes, switch types, keycaps, brands, and more to customize your gaming and typing experience."
           ></Heading>
         </div>
-        <div className="flex items-center justify-between  mb-5">
+        <div className="md:flex items-center justify-between  mb-5">
           <label className="input input-bordered my-5 flex items-center gap-2">
             <input
               type="text"

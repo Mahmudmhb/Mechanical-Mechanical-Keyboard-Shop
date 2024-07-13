@@ -24,6 +24,7 @@ import {
 const ProductModel = ({ update }: { update: string }) => {
   const dispatch = useAppDispatch();
 
+  // get single product using is  update props means id
   useEffect(() => {
     dispatch(getSingleProduct(update));
   }, [dispatch, update]);
@@ -42,6 +43,7 @@ const ProductModel = ({ update }: { update: string }) => {
   });
 
   useEffect(() => {
+    // add model default valuse
     if (product) {
       reset({
         title: product.title,

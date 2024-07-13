@@ -4,11 +4,11 @@ import { TProductProps } from "@/types/types";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { Link } from "react-router-dom";
+
 import "animate.css";
 import "../../components/Navber/navber.css";
+import { renderStars } from "@/components/Reating/Reating";
 const Product = ({ product }: { product: TProductProps }) => {
-  //   const signleProducts = useAppSelector(getSigleProduct);
-
   return (
     <div className="animate__animated animate__fadeInUpf">
       <div className="card bg-base-300 mx-auto  image-container md:w-96 h-[500px]  ">
@@ -20,8 +20,10 @@ const Product = ({ product }: { product: TProductProps }) => {
           <p>Brand:{product.brand}</p>
           <p>Available Quantity:{product.availableQuantity}</p>
           <div className="card-actions justify-between">
-            <div className="">Price:{product.price}</div>
-            <div className="">Rating :{product.rating}</div>
+            <div className="">
+              Price: <span className="font-bold"> ${product.price}</span>
+            </div>
+            <div className=" flex">{renderStars(product.rating)}</div>
           </div>
         </div>
         <div className="card-actions items-center justify-center mb-5 ">

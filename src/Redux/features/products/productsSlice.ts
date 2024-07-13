@@ -20,7 +20,7 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts(state, action) {
-      console.log("new Products", action.payload);
+      // console.log("new Products", action.payload);
       state.products = action.payload;
     },
     setSearchQuery(state, action) {
@@ -61,11 +61,11 @@ const productsSlice = createSlice({
     },
     updateProductIntoState: (state, action) => {
       const getProduct = action.payload;
-      console.log("get product", getProduct);
+      // console.log("get product", getProduct);
       const foundProduct = state.products.find(
         (p) => p._id === getProduct?._id
       );
-      console.log("found product", foundProduct);
+      // console.log("found product", foundProduct);
       if (foundProduct) {
         Object.assign(foundProduct, getProduct);
       }
