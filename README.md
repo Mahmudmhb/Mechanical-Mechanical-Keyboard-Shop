@@ -1,163 +1,86 @@
-Project Name :https://mechanical-keyboard-shop-mu.vercel.app/
+# live site link :https://mechanical-keyboard-shop-mu.vercel.app/
 
-Table of Contents
-Introduction
-Features
+- Table of Contents
+  Overview
+  Features
+  Technologies Used
+  Setup Instructions
+  Prerequisites
+  Installation
+  Running the Application
+  Usage
+  Contribution Guidelines
+  License
+  Contact Information
+  Overview
+  The E-Commerce Platform is a full-featured web application built using the MERN (MongoDB, Express, React, Node.js) stack. This platform allows users to browse, search, filter, and purchase products efficiently. It features a modern and responsive design with various animations and gradients to enhance user experience.
+
+- Features
+
+Search Functionality: Users can search for products by name.
+Filter and Sorting: Users can filter products by price range and sort them by price (low to high, high to low).
+Shopping Cart: Users can add products to their cart, update quantities, and remove items.
+Order Management: Users can view order history and order details.
+Page Refresh Warning: Alerts users about potential data loss when refreshing the page with items in the cart.
+Informative Pages: Attractive About Us and Contact Us pages with basic animations.
+Responsive Design: Optimized for various screen sizes and devices.
 Technologies Used
-Prerequisites
-Installation
-Running the Project
-Project Structure
-Usage
-Redux Setup
-API Endpoints
-Contributing
-License
-Contact
-Introduction
-Briefly describe the project and its purpose.
 
-Features
-List feature 1
-List feature 2
-List feature 3
-Technologies Used
-React
-Redux
-TypeScript
-React Hook Form
-Tailwind CSS
-Chakra UI
-Other relevant technologies
-Prerequisites
-Before you begin, ensure you have met the following requirements:
+- Frontend:
+  React: A JavaScript library for building user interfaces.
+  TypeScript: A typed superset of JavaScript.
+  Redux: State management library.
+  Chakra UI: A modular and accessible component library.
+  React Hook Form: For managing form state.
+  Backend:
+  Node.js: JavaScript runtime.
+  Express: Web framework for Node.js.
+  Database:
+  MongoDB: NoSQL database.
+  Tools:
+  Axios: Promise-based HTTP client.
+  ESLint and Prettier: Code quality tools.
+  Setup Instructions
+  Prerequisites
+  Node.js (v14 or higher)
+  MongoDB (locally installed or cloud instance)
+  Installation
+  Clone the repository:
 
-Node.js (version X.X.X)
-npm or yarn
-Any other prerequisites
-Installation
-Follow these steps to install the project:
-
-Clone the repository:
 sh
 Copy code
-git clone https://github.com/your-username/your-project.git
-Navigate to the project directory:
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+Install backend dependencies:
+
 sh
 Copy code
-cd your-project
-Install the dependencies:
-sh
-Copy code
+cd backend
 npm install
-or
-sh
-Copy code
-yarn install
-Running the Project
-To run the project locally, execute the following command:
+Install frontend dependencies:
 
 sh
 Copy code
+cd ../frontend
+npm install
+Running the Application
+Start MongoDB:
+Make sure MongoDB is running. If using a local instance, start MongoDB using:
+
+sh
+Copy code
+mongod
+Start the backend server:
+
+sh
+Copy code
+cd backend
 npm start
-or
+Start the frontend development server:
 
 sh
 Copy code
-yarn start
-The app will be available at http://localhost:3000.
-
-Project Structure
-Explain the project structure and key files.
-
-css
-Copy code
-your-project/
-├── public/
-├── src/
-│ ├── components/
-│ │ ├── ui/
-│ │ │ ├── Button.tsx
-│ │ │ ├── Dialog.tsx
-│ │ │ └── ...
-│ │ ├── ProductModel.tsx
-│ │ ├── ProductTable.tsx
-│ │ └── ...
-│ ├── Redux/
-│ │ ├── Api/
-│ │ │ ├── baseApi.ts
-│ │ │ └── productsApi.ts
-│ │ ├── features/
-│ │ │ └── products/
-│ │ │ ├── productsSlice.ts
-│ │ │ ├── singleProductApi.ts
-│ │ │ └── ...
-│ │ └── store.ts
-│ ├── types/
-│ │ └── types.ts
-│ ├── App.tsx
-│ ├── index.tsx
-│ └── ...
-├── .gitignore
-├── package.json
-├── README.md
-└── ...
-Usage
-Explain how to use the key features of the project.
-
-Updating a Product
-Navigate to the Dashboard.
-Click the edit button next to the product you want to update.
-Fill in the form with the new product details.
-Click the "Update Product" button to save changes.
-Deleting a Product
-Navigate to the Dashboard.
-Click the delete button next to the product you want to delete.
-Confirm the deletion.
-Redux Setup
-Detailed explanation on how Redux is set up in the project.
-
-productsSlice.ts
-Contains the state and reducers for managing products.
-
-store.ts
-Configures the Redux store and combines slices.
-
-API Endpoints
-List the API endpoints used in the project.
-
-GET /products
-Fetches all products.
-
-PUT /products/
-Updates a specific product.
-
-DELETE /products/
-Deletes a specific product.
-
-Contributing
-To contribute to this project, follow these steps:
-
-Fork the repository.
-Create a new branch:
-sh
-Copy code
-git checkout -b feature/your-feature
-Make your changes and commit them:
-sh
-Copy code
-git commit -m 'Add some feature'
-Push to the branch:
-sh
-Copy code
-git push origin feature/your-feature
-Create a pull request.
-License
-This project is licensed under the [Your License] License - see the LICENSE.md file for details.
-
-Contact
-If you have any questions, feel free to contact us:
-
-Name: Your Name
-Email: your.email@example.com
-GitHub: your-username
+cd ../frontend
+npm start
+Access the application:
+Open your browser and navigate to http://localhost:3000.
