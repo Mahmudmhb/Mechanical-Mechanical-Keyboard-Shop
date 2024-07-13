@@ -75,7 +75,7 @@ const Bennar = () => {
                 </div>
                 <div className="">
                   <h1 className="text-xl font-bold animate__animated animate__fadeInDown">
-                    KeyCaps
+                    Mice
                   </h1>
                 </div>
               </div>
